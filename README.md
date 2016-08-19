@@ -2,5 +2,7 @@
 trivial reverse proxy (written in go)
 
 Usage:
-	reverseProxy -listen <:port> -target http://localhost:8000
+```sh
+reverseProxy -listen <:port> -target http://localhost:8000
+```
 
