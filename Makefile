@@ -11,7 +11,7 @@ BUILDTIME := $(shell date -u +"%Y-%m-%dT%H:%M:%SZ")
 BUILDDATE := $(shell date -u +"%B %d, %Y")
 BUILDER	:= $(shell echo "`git config user.name` <`git config user.email`>")
 BUILD_NUMBER_FILE=build.num
-BUILD_NUM := $(shell cat build.num)
+BUILD_NUM := $(shell if [ -f build.num ]; then cat build.num; else echo 1 >build.num && echo 1; fi)
 PKG_RELEASE ?= 1
 PROJECT_URL := "git@svn.dstresearch.com:devOps/certManager"
 LDFLAGS	:= -X 'main.version=$(VERSION)' \
@@ -30,8 +30,9 @@ all: fmt container
 
 fmt:
 	go fmt
+#	godep go fix .
 
-$(NAME): $(DEPS)
+$(NAME): fmt $(DEPS) $(BUILD_NUMBER_FILE)
 	godep go build -ldflags "$(LDFLAGS)" -o $(NAME)
 
 test: $(DEPS)
