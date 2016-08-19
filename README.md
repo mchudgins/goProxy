@@ -1,5 +1,5 @@
 # goProxy
-trivial reverse proxy (written in go)
+trivial reverse proxy (written in go), does not support TLS
 
 Usage:
 ```sh
