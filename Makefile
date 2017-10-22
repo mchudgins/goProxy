@@ -26,12 +26,16 @@ DEPS := $(shell ls *.go)
 
 .PHONY: fmt test fulltest run container clean site $(BUILD_NUMBER_FILE)
 
-all: fmt
+all: fmt build
 
 fmt:
 	go version
 	go fmt
 #	godep go fix .
+
+build:
+	godep get
+	godep go build
 
 $(NAME): fmt $(DEPS) $(BUILD_NUMBER_FILE)
 	godep go build -ldflags "$(LDFLAGS)" -o $(NAME)

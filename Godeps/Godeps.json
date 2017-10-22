@@ -1,6 +1,6 @@
 {
-	"ImportPath": "github.com/mchudgins/reverseproxy",
-	"GoVersion": "go1.6",
-	"GodepVersion": "v74",
+	"ImportPath": "github.com/mchudgins/goProxy",
+	"GoVersion": "go1.8",
+	"GodepVersion": "v75",
 	"Deps": []
 }
