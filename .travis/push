@@ -12,7 +12,7 @@ commit_files() {
 }
 
 upload_files() {
-  git remote add origin-travis https://${GH_TOKEN}@github.com/mchudgins/goProxy.git > /dev/null 2>&1
+  git remote add origin-travis https://${GH_TOKEN}@github.com/mchudgins/goProxy.git
   git push origin-travis master:travis
 }
 
