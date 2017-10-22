@@ -7,3 +7,5 @@ go:
   - 1.x
 
 go_import_path: github.com/mchudgins/goProxy
+
+script:  go test -v ./... && go build -o goProxy main.go
