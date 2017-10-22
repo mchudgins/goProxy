@@ -26,9 +26,10 @@ DEPS := $(shell ls *.go)
 
 .PHONY: fmt test fulltest run container clean site $(BUILD_NUMBER_FILE)
 
-all: fmt container
+all: fmt
 
 fmt:
+	go version
 	go fmt
 #	godep go fix .
 
