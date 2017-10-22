@@ -8,4 +8,4 @@ go:
 
 go_import_path: github.com/mchudgins/goProxy
 
-script:  go test -v ./... && go build -o docker/goProxy main.go && sudo docker build -t mchudgins/goproxy docker
+script:  go test -v ./... && CGO_ENABLED=0 go build -o docker/goProxy main.go && sudo docker build -t mchudgins/goproxy docker
